@@ -1,0 +1,21 @@
+version: "3.0"
+
+services:
+  meats:
+    build: ./meat-service
+    image: jschmidt10/cloudpizza-meat-service
+    ports:
+      - "80:8080"
+    networks:
+      - pizzanet
+
+  pizzamaker:
+    build: ./pizza-maker
+    image: jschmidt10/cloudpizza-pizza-maker
+    ports:
+      - "81:8080"
+    networks:
+      - pizzanet
+
+networks:
+  pizzanet:
